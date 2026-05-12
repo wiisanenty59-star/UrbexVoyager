@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#0a0a0a"></rect>
+
+  <!-- Tunnel / arch -->
+  <path d="M12 44 Q32 12 52 44" fill="none" stroke="#2a2a2a" stroke-width="4"></path>
+
+  <!-- H -->
+  <path d="M20 26 V44 M20 35 H28 M28 26 V44" stroke="#eaeaea" stroke-width="3" stroke-linecap="round"></path>
+
+  <!-- F -->
+  <path d="M36 26 V44 M36 26 H46 M36 35 H44" stroke="#eaeaea" stroke-width="3" stroke-linecap="round"></path>
+
+  <!-- subtle road line -->
+  <path d="M32 46 V54" stroke="#eaeaea" stroke-width="2" stroke-dasharray="3 3"></path>
+</svg>

@@ -1,0 +1,319 @@
+🧠 PROJECT: Urbex Gated Community (Xfire-Style App)
+
+Inspired by Xfire but modern, private, and built around urban exploration.
+
+
+
+1. 🎯 CORE GOALS (DO NOT SKIP THIS)
+
+Tell your AI coder this is the priority order:
+
+Privacy-first, invite-only network
+Fast real-time chat (like Discord/Xfire hybrid)
+Forum + long-form posts
+Trust system (to prevent leaks & trolls)
+Mobile-first UX
+
+
+2. 🧱 TECH STACK (LOCK THIS IN)
+
+Backend
+
+Framework: Django
+API: Django REST Framework
+Real-time: Django Channels (WebSockets)
+Queue/async: Redis
+Database: PostgreSQL
+Frontend (Mobile-first)
+
+React Native (recommended)
+OR
+Flutter (if you want smoother UI faster)
+Hosting
+
+Backend: Railway / Render / AWS
+DB: Managed PostgreSQL
+Realtime: Redis instance
+
+
+3. 🧩 CORE FEATURES (BUILD IN PHASES)
+
+
+
+🔐 A. AUTH + INVITE SYSTEM (PHASE 1)
+
+Goal: Keep the community private.
+
+Features:
+
+Invite codes (single-use & multi-use)
+Admin approval toggle
+Username only (no real names required)
+Optional burner email support
+
+
+Database Models:
+
+
+User
+- id
+- username
+- email
+- password
+- trust_score
+- role (user, mod, admin)
+- created_at
+
+InviteCode
+- code
+- created_by
+- uses_remaining
+- expires_at
+
+
+Extra idea:
+
+Users earn invites after reaching trust leve
+
+
+💬 B. REAL-TIME CHAT SYSTEM (CORE FEATURE)
+
+This is your “Xfire replacement.”
+
+Chat Types:
+
+Global chat
+Region-based channels (Chicago, Midwest, etc.)
+Private DMs
+Group chats
+Features:
+
+Typing indicators
+Online/offline status
+Read receipts
+Media sharing (images of spots)
+
+ChatRoom
+- id
+- name
+- type (public, private, dm)
+
+Message
+- id
+- sender
+- room
+- content
+- media_url
+- timestamp
+
+WebSocket Events:
+
+
+
+send_message
+receive_message
+user_typing
+user_online
+
+
+⸻
+
+
+
+🧵 C. FORUM SYSTEM
+
+
+
+Structure:
+
+
+
+Categories:
+Locations
+Reports
+Gear
+Warnings
+General
+
+
+Features:
+
+
+
+Threads + replies
+Upvotes/downvotes
+Image uploads
+Tagging (abandoned, hospital, factory, etc.)
+
+Models:
+
+
+
+Category
+
+Thread
+
+
+Post
+
+Location
+
+
+
+🧑‍🚀 D. USER PROFILES + TRUST SYSTEM
+
+Why this matters:
+Urbex communities die if people leak locations.
+
+Trust Score System:
+
+points for:
+Active participation
+Approved posts
+– points for:
+Reports
+Leaks
+Levels:
+
+Newbie
+Trusted
+Verified
+Inner Circle
+Unlocks:
+
+Access to hidden channels
+Ability to view exact locations
+Ability to invite others
+
+
+🗺️ E. LOCATION SHARING (CONTROLLED)
+
+DO NOT make this open.
+
+Features:
+
+Approximate location (blurred map)
+Exact coordinates (locked behind trust level)
+Optional:
+
+Self-destructing location posts
+
+
+📥 F. PRIVATE MESSAGING SYSTEM
+
+You wanted this separate—like an inbox.
+
+UX:
+
+“Inbox” screen
+Click → full chat screen
+Separate from public chat
+
+
+🟢 G. ONLINE STATUS SYSTEM (XFIRE STYLE)
+
+Show who’s online
+Status:
+Exploring
+Editing photos
+Offline
+Last seen timestamps
+
+
+4. 🧠 UX STRUCTURE (APP FLOW)
+
+
+Login / Invite Code
+   ↓
+Home Dashboard
+   ├── Chat (default screen)
+   ├── Forum
+   ├── Inbox (DMs)
+   ├── Explore (locations)
+   └── Profile
+
+
+5. 🔥 ADVANCED FEATURES (PHASE 2+)
+
+Give these to your AI coder AFTER MVP:
+
+End-to-end encrypted chats
+Ephemeral messages (auto-delete)
+Screenshot detection (optional)
+Dead drop posts (time-limited visibility)
+Raid alert system (warn about security/police activity)
+Image EXIF stripper (VERY important for safety)
+
+
+6. 🛡️ SECURITY (CRITICAL FOR URBEX)
+
+Tell your AI coder:
+
+Strip EXIF data from all uploads
+Rate limit messages (prevent spam)
+Encrypt sensitive data
+Log suspicious activity
+Shadow-ban system
+
+
+7. 📦 MVP BUILD ORDER (IMPORTANT)
+
+DO NOT build everything at once.
+
+Phase 1 (2–3 weeks)
+
+Auth + invites
+Basic chat (1 room)
+User system
+Phase 2
+
+Multiple chat rooms + DMs
+Online status
+Phase 3
+
+Forum
+Phase 4
+
+Trust system
+Phase 5
+
+Location sharing
+
+
+8. 🧾 EXACT PROMPT FOR YOUR AI CODER
+
+
+1"}
+Build a mobile-first invite-only urbex community app using Django and React Native.
+
+Core requirements:
+- Invite-only authentication system with invite codes
+- Real-time chat using WebSockets (Django Channels)
+- Chat rooms (public, private, DMs)
+- Separate inbox system for private messages
+- Forum system with categories, threads, and replies
+- User profiles with trust score and role system
+- Online/offline status tracking
+- Media upload with automatic EXIF data stripping
+- PostgreSQL database
+- Redis for WebSocket handling
+
+Architecture:
+- Django backend (REST API + Channels)
+- React Native frontend
+- PostgreSQL database
+- Redis for real-time features
+
+Prioritize:
+1. Real-time chat performance
+2. Privacy and security
+3. Clean, fast UI similar to Xfire
+
+Build in phases:
+1. Auth + basic chat
+2. Full chat system
+3. Forum
+4. Trust system
+5. Location sharing
+
+The UI should feel minimal, fast, and retro-mode
